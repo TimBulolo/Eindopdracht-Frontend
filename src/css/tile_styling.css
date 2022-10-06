@@ -1,0 +1,59 @@
+
+
+.recipe-tile, .random-tile {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 32%;
+    height: 170px;
+    font-family: var(--normal-font-family);
+    font-weight: bold;
+    font-size: 8px;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.recipe-tile:hover {
+    transform: scale(1.2);
+    transition-duration: 500ms;
+}
+
+.tile-text {
+    padding: 7px 9px;
+}
+
+.recipe-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 2px 0;
+}
+
+.tile-pic {
+    width: 100%;
+    height: 70%;
+    border-radius: 5px 5px 0 0;
+}
+
+.tile-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.cal-ing {
+    display: flex;
+    flex-direction: row;
+}
+.cal-ing-min {
+    font-weight: initial;
+}
+
+.time {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+}

@@ -1,0 +1,17 @@
+#calc-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--default-padding);
+    min-height: 70vh;
+}
+
+#calc-content {
+    width: 50%;
+}
+
+#calc-title, #calorie-search-bar, #calorie-variables, #calorie-results #portion, #sum-of, #total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
