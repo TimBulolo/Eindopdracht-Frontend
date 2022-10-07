@@ -31,6 +31,7 @@ export async function sendRandomRequest() {
         randomCookTimes = randomRecipes.map((randomCookTime) =>
             randomCookTime.totalTime
         );
+        console.log('success')
     } catch (err) {
         console.error(err);
     }

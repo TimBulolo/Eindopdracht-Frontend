@@ -15,26 +15,26 @@ function randomTileInput() {
     });
     const randomTiles = document.getElementById('three-tiles');
     for (let i=0; i<3; i++) {
-        let randomTile = document.createElement('img');
+        let randomTile = document.createElement('DIV');
         randomTile.className = 'random-tile';
         randomTile.id = 'random-tile-' + i;
         randomTile.onclick = () => {
             sessionStorage.setItem('recipe', JSON.stringify(randomRecipes[i]));
             window.location.href = '../html/recipe.html'
         }
-        let tilePic = document.createElement('img');
+        let tilePic = document.createElement('IMG');
         tilePic.className = 'tile-pic';
         tilePic.src = randomPics[i];
-        let tileText = document.createElement('div');
+        let tileText = document.createElement('DIV');
         tileText.className = 'tile-text';
-        let recipeName = document.createElement('p');
+        let recipeName = document.createElement('P');
         recipeName.className = 'recipe-name';
         recipeName.textContent = randomTitles[i];
-        let tileInfo = document.createElement('div');
+        let tileInfo = document.createElement('DIV');
         tileInfo.className = 'tile-info';
-        let calIng = document.createElement('div');
+        let calIng = document.createElement('DIV');
         calIng.className = 'cal-ing';
-        let calAmount = document.createElement('p');
+        let calAmount = document.createElement('P');
         calAmount.textContent = randomCalories[i];
         const cal = document.createElement('p');
         cal.className = 'cal-ing-min';
@@ -104,7 +104,7 @@ function searchTileInput() {
             const retry = document.createElement('div');
             retry.className = 'retry'
             const message = document.createElement('p');
-            message.textContent = 'Your search didnt find any matches, please try something else '
+            message.textContent = `Your search didn't find any matches, please try something else `
             bottomHalf.appendChild(retry);
             retry.appendChild(message);
         } else {

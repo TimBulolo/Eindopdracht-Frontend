@@ -15,7 +15,7 @@
     margin-bottom: 15px;
 }
 
-.recipe-tile:hover {
+.recipe-tile:hover, .random-tile:hover {
     transform: scale(1.2);
     transition-duration: 500ms;
 }
@@ -37,23 +37,27 @@
     border-radius: 5px 5px 0 0;
 }
 
-.tile-info {
+.tile-info, .cal-ing-min, .cal-ing, .time, .retry {
     display: flex;
     flex-direction: row;
+}
+
+.tile-info {
     justify-content: space-between;
 
 }
 
-.cal-ing {
-    display: flex;
-    flex-direction: row;
-}
 .cal-ing-min {
     font-weight: initial;
 }
 
 .time {
-    display: flex;
-    flex-direction: row;
     align-self: flex-end;
+}
+
+.retry {
+    justify-content: center;
+    font-family: Poppins, sans-serif;
+    color: red;
+    text-decoration: black;
 }

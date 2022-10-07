@@ -2,8 +2,8 @@ import axios from "axios";
 
 import {recipeKey, recipeId} from "../app";
 
+export let searchTerm = document.getElementById('search-term').value;
 let
-    searchTerm = document.getElementById('search-term').value,
     mealType = document.getElementById('meal-type').value,
     cuisineType = document.getElementById('cuisine').value,
     dietChoice = document.getElementById('diet').value,
@@ -64,7 +64,7 @@ export async function searchRequest() {
         searchedCookTimes = searchedRecipes.map((searchedCookTime) =>
             searchedCookTime.totalTime
         );
-        console.log(searchedPics)
+        console.log(JSON.stringify(searchedRecipes));
     } catch (err) {
         console.error(err)
     }
