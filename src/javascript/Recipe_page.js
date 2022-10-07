@@ -31,9 +31,6 @@ console.log(chosenRecipe);
     }
 })();
 
-function fillNutrients() {
-
-}
 
 
 

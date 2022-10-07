@@ -5,9 +5,8 @@ export {randomTileAppear, randomTileInput}
 
 function randomTileAppear() {
     const randomTile = document.getElementById("three-tiles");
-    randomTile.style.opacity = "1"
-    }
-
+        randomTile.style.opacity = '1';
+}
 function randomTileInput() {
     const tiles = document.querySelectorAll('.random-tile')
     tiles.forEach(tile => {
@@ -164,7 +163,6 @@ function searchTileInput() {
                 time.appendChild(clockSymbol);
                 time.appendChild(timeAmount);
                 time.appendChild(min);
-
             }
 
         }

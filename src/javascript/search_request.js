@@ -64,7 +64,7 @@ export async function searchRequest() {
         searchedCookTimes = searchedRecipes.map((searchedCookTime) =>
             searchedCookTime.totalTime
         );
-        console.log(JSON.stringify(searchedRecipes));
+        console.log(response.config.url)
     } catch (err) {
         console.error(err)
     }
