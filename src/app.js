@@ -1,9 +1,9 @@
 import {getCalc} from "./javascript/calculator";
 
 export const
-    recipeKey = '',
+    recipeKey = 'b37e569eef510825f6bc61393240de80',
     recipeId = '1dba6a76',
-    databaseKey = '',
+    databaseKey = '7b4f0a94414cba97dcd839e7b0fd4578',
     databaseId = 'edfb0da8';
 import {sendRandomRequest} from "./javascript/random_request";
 import {randomTileAppear, randomTileInput} from "./javascript/tile_input";
