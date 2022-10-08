@@ -1,23 +1,37 @@
-#recipe_page {
+#recipe-page {
     display: flex;
     flex-direction: column;
     padding: var(--default-padding);
-    margin-top: 20px;
+    margin: 20px 0px;
+    font-family: var(--normal-font-family);
+    color: var(--background-color);
 }
-#recipe_page_info {
+
+#recipe-page-header {
     display: flex;
     flex-direction: row;
-    height: 90vh;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 23px;
+    margin-bottom: -20px;
 }
 
-#recipe_page_header {
+#recipe-page-title {
+    font-weight: 700;
+}
 
+#recipe-page-time {
+    font-weight: 500;
+}
+
+#recipe-page-info {
+    display: flex;
+    flex-direction: row;
 }
 
 #left-info, #right-info {
     display: flex;
     flex-direction: column;
-    border: solid 1px red;
     width: 50%;
 
 }
@@ -27,6 +41,14 @@
 
 h2 {
     margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#ingredients-list li {
+    font-size: 12px;
+    font-weight: 400;
+    list-style: outside;
 }
 
 #heath-labels {
@@ -58,29 +80,37 @@ h2 {
 
 #recipe-page-pic {
     width: 70%;
+    border-radius: 3px;
 }
 
 #nutrients {
     margin-left: 30%;
+    margin-top: 40px;
     align-self: flex-start;
 }
 
 #nutrient-box {
+    align-self: flex-end;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 70%;
     margin-left: 30px;
+    height: 10%;
 }
 
 #amount {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    width: 25%;
 }
 
-#type, #value, #unit {
+.nutrients {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    font-size: 12px;
+    font-weight: 500;
 }
+

@@ -11,14 +11,17 @@
     <nav class="links">
         <a href="../index.html">Home</a>
         <a href="https://developer.edamam.com/edamam-docs-nutrition-api">About</a>
-        <a href="../html/recipe.html">Calculator</a>
+        <a href="../html/calculator.html">Calculator</a>
     </nav>
 </header>
-<div id="recipe_page">
-    <div id="recipe_page_header">
-        <h1 id="recipe_page_title"></h1>
+<div id="recipe-page">
+    <div id="recipe-page-header">
+        <p id="recipe-page-title"></p>
+        <img src="../assets/icons/time.svg">
+        <p><span id="recipe-page-time"></span></p>
+        <p>min.</p>
     </div>
-    <article id="recipe_page_info">
+    <article id="recipe-page-info">
         <div id="left-info">
             <h2 id="list-name">Ingredients</h2>
             <ul id="ingredients-list">
@@ -30,16 +33,19 @@
         </div>
         <div id="right-info">
             <img id="recipe-page-pic">
-            <p id="nutrients">Nutrients</p>
+            <h2 id="nutrients">Nutrients</h2>
             <div id="nutrient-box">
-                <article class="nutrients" id="type">
-                    <p>Energy</p>
-                    <p>Fat</p>
-                    <p>Carbs</p>
-                    <p>Sugar</p>
-                    <p>Protein</p>
-                    <p>Sodium</p>
-                </article>
+                <div class="nutrients" id="type">
+                    <article>
+                        <p>Energy</p>
+                        <p>Fat</p>
+                        <p>Carbs</p>
+                        <p>Sugar</p>
+                        <p>Protein</p>
+                        <p>Sodium</p>
+                    </article>
+
+                </div>
                 <div class="nutrients" id="amount">
                     <article id="value">
                         <p id="e-value"></p>

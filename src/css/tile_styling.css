@@ -10,7 +10,7 @@
     font-family: var(--normal-font-family);
     font-weight: bold;
     font-size: 8px;
-    color: black;
+    color: var(--dark-font-color);
     border-radius: 5px;
     margin-bottom: 15px;
 }
