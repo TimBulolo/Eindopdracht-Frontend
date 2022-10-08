@@ -14,12 +14,14 @@ function randomTileInput() {
     });
     const randomTiles = document.getElementById('three-tiles');
     for (let i=0; i<3; i++) {
+        let randomLink = document.createElement('a')
+        randomLink.href = '../html/recipe.html';
+        randomLink.className = 'random-link'
         let randomTile = document.createElement('DIV');
         randomTile.className = 'random-tile';
         randomTile.id = 'random-tile-' + i;
         randomTile.onclick = () => {
             sessionStorage.setItem('recipe', JSON.stringify(randomRecipes[i]));
-            window.location.href = '../html/recipe.html'
         }
         let tilePic = document.createElement('IMG');
         tilePic.className = 'tile-pic';
@@ -54,7 +56,8 @@ function randomTileInput() {
         min.className = 'cal-ing-min';
         min.textContent = '\u00A0min';
 
-        randomTiles.appendChild(randomTile);
+        randomTiles.appendChild(randomLink);
+        randomLink.appendChild(randomTile)
         randomTile.appendChild(tilePic);
         randomTile.appendChild(tileText);
         tileText.appendChild(recipeName);
@@ -109,12 +112,14 @@ function searchTileInput() {
         } else {
             const searchedTiles = document.getElementById('searched-tiles');
             for (let i = 0; i < searchedRecipes.length; i++) {
+                let recipeLink = document.createElement('a');
+                recipeLink.href = '../html/recipe.html'
+                recipeLink.className = 'recipe-link'
                 let recipeTile = document.createElement('div');
                 recipeTile.className = 'recipe-tile';
                 recipeTile.id = 'searched-tile-' + i;
                 recipeTile.onclick = () => {
                     sessionStorage.setItem('recipe', JSON.stringify(searchedRecipes[i]));
-                    window.location.href = '../html/recipe.html'
                 }
                 let tilePic = document.createElement('img');
                 tilePic.className = 'tile-pic';
@@ -149,7 +154,8 @@ function searchTileInput() {
                 min.className = 'cal-ing-min';
                 min.textContent = '\u00A0min';
 
-                searchedTiles.appendChild(recipeTile);
+                searchedTiles.appendChild(recipeLink);
+                recipeLink.appendChild(recipeTile)
                 recipeTile.appendChild(tilePic);
                 recipeTile.appendChild(tileText);
                 tileText.appendChild(recipeName);
