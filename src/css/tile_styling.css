@@ -3,7 +3,7 @@
     text-decoration: none;
 }
 
-.recipe-tile, .random-tile {
+.recipe-tile{
     background-color: #eeeeee;
     display: flex;
     flex-direction: column;
