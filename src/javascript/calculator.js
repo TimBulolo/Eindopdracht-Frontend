@@ -1,10 +1,9 @@
 
-import axios from "axios";
 export let
     databaseKey = '',
     databaseId = 'edfb0da8';
 
-import {getCalc} from "./database_request";
+import {searchFood, searchNutrients} from "./database_request";
 
 export let calSearchTermUrl = ''
 document.getElementById('calorie-search-bar').addEventListener("keyup", (e) => {
@@ -18,11 +17,15 @@ document.getElementById('calorie-search-bar').addEventListener("keyup", (e) => {
 
 document.getElementById('calorie-search-form').addEventListener("submit", async (e) => {
     e.preventDefault();
-    await getCalc();
+    await searchFood();
 });
 
 
 
+
+document.getElementById('add-button').addEventListener("click", async () => {
+    await searchNutrients()
+})
 
 
 

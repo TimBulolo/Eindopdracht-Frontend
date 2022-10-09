@@ -15,33 +15,51 @@ let
     cuisineTypeUrl = '',
     dietChoiceUrl = '',
     timeFrameUrl = '',
-    randomUrl = '&random=false';
+    randomUrl = '';
 
 document.getElementById('search-term').addEventListener("keyup", (e) => {
     searchTerm = e.target.value;
 });
 document.getElementById('meal-type').addEventListener("change", (e) => {
     let mealType = e.target.value;
-    mealTypeUrl = `&mealType=${mealType}`
+    if (mealType.length === 0){
+        mealTypeUrl = ''
+    } else {
+        mealTypeUrl = `&mealType=${mealType}`
+    }
 });
 document.getElementById('cuisine').addEventListener("change", (e) => {
     let cuisineType = e.target.value
-    cuisineTypeUrl = `&cuisineType=${cuisineType}`
+    if (cuisineType.length === 0){
+        cuisineTypeUrl = ''
+    } else {
+        cuisineTypeUrl = `&cuisineType=${cuisineType}`
+    }
 });
 document.getElementById('diet').addEventListener("change", (e) => {
     let dietChoice = e.target.value
-    dietChoiceUrl = `&diet=${dietChoice}`
+    if (dietChoice.length === 0){
+        dietChoiceUrl = ''
+    } else {
+        dietChoiceUrl = `&diet=${dietChoice}`
+    }
+
 });
 document.getElementById('time').addEventListener("change", (e) => {
     let timeFrame = e.target.value
-    timeFrameUrl = `&time=${timeFrame}`
+    if (timeFrame.length === 0){
+        timeFrameUrl = ''
+    } else {
+        timeFrameUrl = `&time=${timeFrame}`
+    }
+
 });
 
-export function randomize(boolean) {
-    if (boolean === true){
+export function randomize(random) {
+    if (random === true){
         randomUrl = '&random=true'
-        searchTerm = 'chicken'
-    } if (boolean === false) {
+        searchTerm = 'food'
+    } if (random === false) {
         randomUrl = '&random=false'
     }
 }
