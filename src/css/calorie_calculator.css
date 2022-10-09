@@ -4,14 +4,24 @@
     align-items: flex-start;
     padding: var(--default-padding);
     min-height: 70vh;
+    font-family: var(--normal-font-family);
 }
 
 #calc-content {
     width: 50%;
 }
 
-#calc-title, #calorie-search-bar, #calorie-variables, #calorie-results #portion, #sum-of, #total {
+#calorie-search-bar, #calorie-variables, #calorie-results, #portion, #sum-of, #total, .sum-box{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
+
+.boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 12px;
+}
+

@@ -3,7 +3,7 @@
     text-decoration: none;
 }
 
-.recipe-tile{
+.recipe-tile {
     background-color: #eeeeee;
     display: flex;
     flex-direction: column;
@@ -16,11 +16,11 @@
     color: var(--dark-font-color);
     border-radius: 5px;
     margin-bottom: 15px;
+    transition-duration: 500ms;
 }
 
-.recipe-tile:hover, .random-tile:hover {
+.recipe-tile:hover {
     transform: scale(1.2);
-    transition-duration: 500ms;
 }
 
 .tile-text {
