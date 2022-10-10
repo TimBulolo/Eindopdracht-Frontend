@@ -42,8 +42,8 @@ const amountInput = document.getElementById('amount-box');amountInput.addEventLi
 });
 
 let foodId = '',
-    measureURI = '',
-    quantity = '';
+    measureURI = '';
+export let quantity = '';
 
 
 export async function searchNutrients() {
@@ -68,7 +68,6 @@ export async function searchNutrients() {
         energy = [eLabel, eQuantity, eUnit];
         fat = [fLabel, fQuantity, fUnit];
         carbs = [cLabel, cQuantity, cUnit];
-        console.log(cQuantity)
     } catch (err) {
         console.error(err)
     }
