@@ -19,16 +19,19 @@
         <div id="calc-title">
             <h1>Calorie Calculator</h1>
         </div>
-        <form id="calorie-search-form">
-            <input type="text" id="calorie-search-bar">
+        <form id="calorie-search-form" autocomplete="off">
+            <div class="autocomplete">
+                <input type="text" class="auto" id="calorie-search-bar"/>
+                <input type="text" class="auto" id="completed" disabled/>
+            </div>
             <button type="submit" id="calorie-button">Search</button>
         </form>
-        <div id="calorie-variables">
+        <div id="calorie-variables" class="result">
             <p>Product</p>
             <p>Quantity</p>
             <p>Label</p>
         </div>
-        <div id="calorie-results">
+        <div id="calorie-results" class="result">
             <p id="product"></p>
             <p id="quantity"></p>
             <p id="label"></p>
@@ -38,12 +41,6 @@
             <input type="number" id="amount-box">
             <label for="add-button">Serving(s)</label>
             <button type="button" id="add-button">Add</button>
-        </div>
-        <div id="sum-variables">
-
-
-
-
         </div>
         <div id="sum-of">
             <div id="product-input" class="boxes">
@@ -60,7 +57,18 @@
             </div>
         </div>
         <div id="total">
-
+            <div id="product-total" class="total-boxes">
+                <p>Total</p>
+            </div>
+            <div id="calories-total" class="total-boxes">
+                <p><span id="calories-sum"></span></p>
+            </div>
+            <div id="fat-total" class="total-boxes">
+                <p><span id="fat-sum"></span></p>
+            </div>
+            <div id="carbs-total" class="total-boxes">
+                <p><span id="carbs-sum"></span></p>
+            </div>
         </div>
     </div>
 </div>

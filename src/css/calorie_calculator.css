@@ -11,17 +11,79 @@
     width: 50%;
 }
 
-#calorie-search-bar, #calorie-variables, #calorie-results, #portion, #sum-of, #total, .sum-box{
+#calorie-search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.autocomplete {
+    width: 100%;
+    position: relative;
+
+}
+
+.auto{
+    position: absolute;
+    z-index: 7;
+    width: 80%;
+    font-size: 13px;
+    background-color: transparent;
+}
+
+#completed {
+    color: silver;
+    z-index: 1;
+}
+
+
+#calorie-search-bar, .result, #portion, #sum-of, #total, .sum-box, .sum, .total-boxes{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+.result {
+    font-size: 11px;
+    width: 70%;
+}
 
+#sum-of {
+    align-items: stretch;
+
+}
+
+.sum {
+    height: 45px;
+    align-items: center;
+
+}
+
+.boxes, .total-boxes {
+    font-size: 11px;
+    width: 25%
+}
 .boxes {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    font-size: 12px;
 }
 
+#total {
+    border-top: solid 1px var(--dark-font-color);
+}
+
+#product-input, #product-total {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#calories-input, #calories-total, #fat-input, #fat-total {
+    align-items: center;
+    justify-content: center;
+}
+
+#carbs-input, #carbs-total {
+    align-items: flex-end;
+    justify-content: flex-end;
+}
