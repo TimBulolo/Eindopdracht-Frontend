@@ -1,29 +1,34 @@
 import axios from "axios";
 import {databaseKey, databaseId} from "./calculator";
+
 export {searchFood, searchNutrients};
 
 
-const fillBar = document.getElementById('completed')
+let calSearchTerm = '',
+    calSearchTermUrl = '';
+
+const fillBar = document.getElementById('completed');
 const searchBar = document.getElementById('calorie-search-bar');
-searchBar.addEventListener("input", async(e) => {
+searchBar.addEventListener("keyup", async (e) => {
     calSearchTerm = e.target.value;
     if (isNaN(calSearchTerm)) {
         calSearchTermUrl = `&ingr=${calSearchTerm}`;
         if (calSearchTerm.length > 1) {
             await autoFill();
-            fillBar.value = completed;
+            if (completed === undefined) {
+                fillBar.value = '';
+            } else {
+                fillBar.value = completed;
+            }
+        } else {
+            fillBar.value = '';
         }
     } else {
         calSearchTermUrl = `&upc=${calSearchTerm}`;
     }
-    if (calSearchTerm.length < 1) {
-        fillBar.value = ''
-    }
-    searchBar.onkeydown = (e) => {
-        if (e.key === 'ArrowRight') {
-            searchBar.value = fillBar.value;
-            calSearchTermUrl = `&ingr=${fillBar.value}`;
-        }
+    if (e.key === 'ArrowRight') {
+        searchBar.value = fillBar.value;
+        calSearchTermUrl = `&ingr=${fillBar.value}`;
     }
 });
 
@@ -39,8 +44,7 @@ async function autoFill() {
     }
 }
 
-let calSearchTerm = '',
-    calSearchTermUrl = ''
+
 
 export let
     product = '',

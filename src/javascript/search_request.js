@@ -1,5 +1,6 @@
 import axios from "axios";
 import {recipeKey, recipeId,} from "../app";
+export {randomize, searchRequest}
 
 export let
     searchTerm = document.getElementById('search-term').value,
@@ -55,7 +56,7 @@ document.getElementById('time').addEventListener("change", (e) => {
 
 });
 
-export function randomize(random) {
+function randomize(random) {
     if (random === true){
         randomUrl = '&random=true'
         searchTerm = 'food'
@@ -64,7 +65,7 @@ export function randomize(random) {
     }
 }
 
-export async function searchRequest() {
+async function searchRequest() {
     try {
         const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${recipeId}&app_key=${recipeKey}&q=${searchTerm}${mealTypeUrl}${cuisineTypeUrl}${dietChoiceUrl}${timeFrameUrl}${randomUrl}`);
         let results = response.data.hits;
