@@ -12,7 +12,8 @@ document.getElementById('calorie-search-form').addEventListener("submit", async 
 });
 
 
-document.getElementById('add-button').addEventListener("click", async () => {
+document.getElementById('portion-form').addEventListener("submit", async (e) => {
+    e.preventDefault();
     await searchNutrients();
     await fillBottom();
     showTotal('.energy-kcal', 'calories-sum', 'kcal');
@@ -61,12 +62,11 @@ function fillBottom() {
     carbsBox.appendChild(carbsGram);
 }
 
-function showTotal(className, parent, replace ) {
+function showTotal(className, parent, unit) {
     let nutrientCategory = Array.from(document.querySelectorAll(className));
     let data = nutrientCategory.map((calorieDate) =>
-        Number(JSON.stringify(calorieDate.firstChild.data).replace(replace, '').replace(/"/g,''))
+        Number(JSON.stringify(calorieDate.firstChild.data).replace(unit, '').replace(/"/g,''))
     );
     const total = data.reduce((partialSum, a) => partialSum + a, 0);
-    document.getElementById(parent).textContent = `${total} ${replace}`;
-    console.log(total);
+    document.getElementById(parent).textContent = `${total} ${unit}`;
 }

@@ -12,9 +12,7 @@
 }
 
 #calorie-search-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
     width: 90%;
 }
 
@@ -38,7 +36,7 @@
 }
 
 
-#calorie-search-bar, .result, #portion, #sum-of, #total, .sum-box, .sum, .total-boxes{
+#calorie-search-form, .result, #portion-form, #sum-of, #total, .sum-box, .sum, .total-boxes{
     display: flex;
     flex-direction: row;
     justify-content: space-between;

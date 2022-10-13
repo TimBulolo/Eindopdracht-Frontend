@@ -144,7 +144,6 @@ header nav a {
 
 #bottom-half {
     padding: var(--default-padding);
-    min-height: 20vh;
 }
 
 

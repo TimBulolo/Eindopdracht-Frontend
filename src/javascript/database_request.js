@@ -45,7 +45,6 @@ async function autoFill() {
 }
 
 
-
 export let
     product = '',
     weight = '',
@@ -56,7 +55,6 @@ async function searchFood() {
         const result = await axios.get(`https://api.edamam.com/api/food-database/v2/parser?app_id=${databaseId}&app_key=${databaseKey}${calSearchTermUrl}`);
         const results = result.data.hints;
         const [searchedFood] = results;
-        console.log(searchedFood);
         const {food} = searchedFood
         foodId = food.foodId;
         product = food.label;
@@ -66,7 +64,6 @@ async function searchFood() {
         );
         weight = measureFind.weight;
         measureURI = measureFind.uri;
-        console.log(result.config.url)
     } catch (err) {
         console.error(err)
     }
@@ -77,30 +74,34 @@ amountInput.addEventListener("input", (e) => {
     quantity = Number(e.target.value)
 });
 
-let foodId = '',
-    measureURI = '';
 export let
     quantity = '',
     energy = '',
     fat = '',
     carbs = '';
 
+let foodId = '',
+    measureURI = '',
+    ingredients = [];
+
+function Ingredients(q, m, f) {
+    this.quantity = q
+    this.measureURI = m
+    this.foodId = f;
+}
 
 async function searchNutrients() {
+    ingredients.splice(0,1, new Ingredients(quantity, measureURI, foodId))
+    console.log(ingredients);
     try {
         const response = await axios({
             method: 'post',
             url: `https://api.edamam.com/api/food-database/v2/nutrients?app_id=${databaseId}&app_key=${databaseKey}`,
             data: {
-                'ingredients': [
-                    {
-                        'quantity': quantity,
-                        'measureURI': measureURI,
-                        'foodId': foodId
-                    }
-                ]
+                ingredients
             }
         });
+        console.log(response.config.url)
         const {ENERC_KCAL, FAT, CHOCDF} = response.data.totalNutrients;
         const {label: eLabel, quantity: eQuantity, unit: eUnit} = ENERC_KCAL;
         const {label: fLabel, quantity: fQuantity, unit: fUnit} = FAT;

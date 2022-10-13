@@ -9,7 +9,7 @@ import {
 
 export {createTileElement, createRetryMessage}
 
-function createTileElement(className, loop, parent) {
+function refresh (className) {
     const tiles = document.querySelectorAll(`.${className}`)
     tiles.forEach(tile => {
         tile.remove();
@@ -18,6 +18,10 @@ function createTileElement(className, loop, parent) {
     retries.forEach(retry => {
         retry.remove();
     });
+}
+
+function createTileElement(className, loop, parent) {
+    refresh(className)
     const parentDiv = document.getElementById(parent);
     for (let i = 0; i < loop; i++) {
         let recipeLink = document.createElement('a');
@@ -81,14 +85,7 @@ function createTileElement(className, loop, parent) {
 }
 
 function createRetryMessage(parent, text) {
-    const retries = document.querySelectorAll('.retry');
-    retries.forEach(retry => {
-        retry.remove();
-    });
-    const tiles = document.querySelectorAll(`.recipe-link`)
-    tiles.forEach(tile => {
-        tile.remove();
-    });
+    refresh('recipe-link');
     const parentDiv = document.getElementById(parent);
     const retry = document.createElement('div');
     retry.className = 'retry'
@@ -97,3 +94,4 @@ function createRetryMessage(parent, text) {
     parentDiv.appendChild(retry);
     retry.appendChild(message);
 }
+
