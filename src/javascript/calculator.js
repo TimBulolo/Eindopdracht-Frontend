@@ -18,13 +18,22 @@ document.getElementById('portion-form').addEventListener("submit", async (e) => 
     await fillBottom();
     showTotal('.energy-kcal', 'calories-sum', 'kcal');
     showTotal('.fat-gram', 'fat-sum', 'g');
-    showTotal('.carbs-gram', 'carbs-sum', 'g')
+    showTotal('.carbs-gram', 'carbs-sum', 'g');
 })
 
 function fillTop() {
     document.getElementById('product').textContent = product;
     document.getElementById('quantity').textContent = weight;
     document.getElementById('label').textContent = 'Gram';
+}
+
+
+function Brackets(name) {
+    if (quantity > 1) {
+        this.name = `(${name})`
+    } else {
+        this.name = ''
+    }
 }
 
 function fillBottom() {
@@ -35,21 +44,21 @@ function fillBottom() {
     const productBox = document.createElement('div');
     productBox.className = 'sum';
     const productName = document.createElement('p');
-    productName.textContent = `${product}(${quantity})`;
+    productName.textContent = product + new Brackets(quantity).name;
     const calorieBox = document.createElement('div');
     calorieBox.className = 'sum';
     const energyKcal = document.createElement('p');
-    energyKcal.textContent = `${Math.ceil(energy[1])} ${energy[2]}`;
+    energyKcal.textContent = `${energy[1]} ${energy[2]}`;
     energyKcal.className = 'energy-kcal';
     const fatBox = document.createElement('div');
     fatBox.className = 'sum';
     const fatGram = document.createElement('p');
-    fatGram.textContent = `${Math.ceil(fat[1])} ${fat[2]}`;
+    fatGram.textContent = `${fat[1]} ${fat[2]}`;
     fatGram.className = 'fat-gram';
     const carbsBox = document.createElement('div');
     carbsBox.className = 'sum';
     const carbsGram = document.createElement('p');
-    carbsGram.textContent = `${Math.ceil(carbs[1])} ${carbs[2]}`;
+    carbsGram.textContent = `${carbs[1]} ${carbs[2]}`;
     carbsGram.className = 'carbs-gram';
 
     productInput.appendChild(productBox);

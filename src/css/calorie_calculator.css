@@ -3,17 +3,29 @@
     flex-direction: column;
     align-items: flex-start;
     padding: var(--default-padding);
-    min-height: 70vh;
+    min-height: 65vh;
     font-family: var(--normal-font-family);
+    font-size: 11px;
+    color: var(--dark-font-color);
 }
 
 #calc-content {
-    width: 50%;
+    width: 45%;
+}
+
+#calc-title {
+    color: var(--background-color);
 }
 
 #calorie-search-form {
-
-    width: 90%;
+    height: 30px;
+    width: 80%;
+}
+#calorie-search-bar {
+    background-image: url('../assets/images/search_icon.webp');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 30px;
 }
 
 .autocomplete {
@@ -24,15 +36,29 @@
 
 .auto{
     position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
     z-index: 7;
+    height: 85%;
     width: 80%;
     font-size: 13px;
     background-color: transparent;
+    border: solid 1px var(--dark-font-color);
+    border-radius: 3px;
 }
 
 #completed {
     color: silver;
     z-index: 1;
+}
+
+#calorie-button {
+    width: 90px;
+}
+
+#calorie-results {
+    min-height: 40px;
 }
 
 
@@ -42,14 +68,32 @@
     justify-content: space-between;
 }
 
+#portion-form {
+    height: 30px;
+    width: 85%;
+    align-items: center;
+}
+
+#amount-box, #add-button {
+    height: 90%;
+}
+
+#amount-box {
+    width: 100px;
+    border: solid 1px var(--dark-font-color);
+    border-radius: 3px;
+}
+
 .result {
-    font-size: 11px;
     width: 70%;
+}
+
+.result p {
+    max-width: 33%;
 }
 
 #sum-of {
     align-items: stretch;
-
 }
 
 .sum {
@@ -59,7 +103,6 @@
 }
 
 .boxes, .total-boxes {
-    font-size: 11px;
     width: 25%
 }
 .boxes {

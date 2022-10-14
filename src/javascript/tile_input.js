@@ -24,43 +24,43 @@ function createTileElement(className, loop, parent) {
     refresh(className)
     const parentDiv = document.getElementById(parent);
     for (let i = 0; i < loop; i++) {
-        let recipeLink = document.createElement('a');
+        const recipeLink = document.createElement('a');
         recipeLink.href = '../html/recipe.html'
         recipeLink.className = className
-        let recipeTile = document.createElement('div');
+        const recipeTile = document.createElement('div');
         recipeTile.className = 'recipe-tile'
         recipeTile.id = 'searched-tile-' + i;
         recipeTile.onclick = () => {
             sessionStorage.setItem('recipe', JSON.stringify(searchedRecipes[i]));
         }
-        let tilePic = document.createElement('img');
+        const tilePic = document.createElement('img');
         tilePic.className = 'tile-pic';
         tilePic.src = searchedPics[i];
-        let tileText = document.createElement('div');
+        const tileText = document.createElement('div');
         tileText.className = 'tile-text';
-        let recipeName = document.createElement('p');
+        const recipeName = document.createElement('p');
         recipeName.className = 'recipe-name';
         recipeName.textContent = searchedTitles[i];
-        let tileInfo = document.createElement('div');
+        const tileInfo = document.createElement('div');
         tileInfo.className = 'tile-info';
-        let calIng = document.createElement('div');
+        const calIng = document.createElement('div');
         calIng.className = 'cal-ing';
-        let calAmount = document.createElement('p');
+        const calAmount = document.createElement('p');
         calAmount.textContent = searchedCalories[i];
         const cal = document.createElement('p');
         cal.className = 'cal-ing-min';
         cal.textContent = '\u00A0Calories |\u00A0';
-        let ingAmount = document.createElement('p');
+        const ingAmount = document.createElement('p');
         ingAmount.textContent = searchedIngredientAmounts[i];
         const ing = document.createElement('p');
         ing.className = 'cal-ing-min';
         ing.textContent = '\u00A0Ingredients'
-        let time = document.createElement('div');
+        const time = document.createElement('div');
         time.className = 'time';
         const clockSymbol = document.createElement('p');
         clockSymbol.className = 'cal-ing-min';
         clockSymbol.textContent = '🕐\u00A0';
-        let timeAmount = document.createElement('p');
+        const timeAmount = document.createElement('p');
         timeAmount.textContent = searchedCookTimes[i];
         const min = document.createElement('p');
         min.className = 'cal-ing-min';

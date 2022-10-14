@@ -3,7 +3,6 @@ import {databaseKey, databaseId} from "./calculator";
 
 export {searchFood, searchNutrients};
 
-
 let calSearchTerm = '',
     calSearchTermUrl = '';
 
@@ -15,10 +14,10 @@ searchBar.addEventListener("keyup", async (e) => {
         calSearchTermUrl = `&ingr=${calSearchTerm}`;
         if (calSearchTerm.length > 1) {
             await autoFill();
-            if (completed === undefined) {
-                fillBar.value = '';
-            } else {
+            if (completed !== undefined) {
                 fillBar.value = completed;
+            } else {
+                fillBar.value = '';
             }
         } else {
             fillBar.value = '';
@@ -44,7 +43,6 @@ async function autoFill() {
     }
 }
 
-
 export let
     product = '',
     weight = '',
@@ -62,8 +60,9 @@ async function searchFood() {
         let measureFind = await measurePick.find((serving) =>
             serving.label === 'Serving' || 'Cup'
         );
-        weight = measureFind.weight;
+        weight = Number(Math.ceil(measureFind.weight));
         measureURI = measureFind.uri;
+        console.log(searchedFood)
     } catch (err) {
         console.error(err)
     }
@@ -106,9 +105,10 @@ async function searchNutrients() {
         const {label: eLabel, quantity: eQuantity, unit: eUnit} = ENERC_KCAL;
         const {label: fLabel, quantity: fQuantity, unit: fUnit} = FAT;
         const {label: cLabel, quantity: cQuantity, unit: cUnit} = CHOCDF;
-        energy = [eLabel, eQuantity, eUnit];
-        fat = [fLabel, fQuantity, fUnit];
-        carbs = [cLabel, cQuantity, cUnit];
+        energy = [eLabel, Number(Math.ceil(eQuantity)), eUnit];
+        fat = [fLabel, Number(Math.ceil(fQuantity)), fUnit];
+        carbs = [cLabel, Number(Math.ceil(cQuantity)), cUnit];
+        console.log(energy)
     } catch (err) {
         console.error(err)
     }
