@@ -9,18 +9,23 @@ import {
 
 export {createTileElement, createRetryMessage}
 
-function refresh (className) {
+//This function removes prior search results, without it, new search results stack under the old ones instead of replacing them. it takes a 'className' parameter so that the random form doesn't remove the search form results and vice versa
+function refresh(className) {
     const tiles = document.querySelectorAll(`.${className}`)
     tiles.forEach(tile => {
         tile.remove();
     });
-    const retries = document.querySelectorAll('.retry');
-    retries.forEach(retry => {
-        retry.remove();
-    });
+    if (className === 'recipe-link') {
+        const retryMessages = document.querySelectorAll('.retry-message');
+        retryMessages.forEach(retryMessage => {
+            retryMessage.remove();
+        });
+    }
 }
 
+//This function creates tiles containing search result data. It takes a 'className' parameter to interact with the refresh() function, a 'loop' parameter to tell the function how many tiles to build, and a 'parent' parameter to append the tiles to the correct element. every tile element is a link to the recipe page. The tiles have their own stylesheet, src/css/tile_styling.css. An HTML model of the tiles can be found in src/assets/dev_files.html
 function createTileElement(className, loop, parent) {
+    //First it removes old results
     refresh(className)
     const parentDiv = document.getElementById(parent);
     for (let i = 0; i < loop; i++) {
@@ -30,6 +35,7 @@ function createTileElement(className, loop, parent) {
         const recipeTile = document.createElement('div');
         recipeTile.className = 'recipe-tile'
         recipeTile.id = 'searched-tile-' + i;
+        //this event listener tells the recipe page what data to load via sessionStorage
         recipeTile.onclick = () => {
             sessionStorage.setItem('recipe', JSON.stringify(searchedRecipes[i]));
         }
@@ -84,14 +90,16 @@ function createTileElement(className, loop, parent) {
     }
 }
 
-function createRetryMessage(parent, text) {
+//This function creates error messages when search queries cannot be executed. it takes a 'text' parameter to display different messages
+function createRetryMessage(text) {
+    //First it removes older results
     refresh('recipe-link');
-    const parentDiv = document.getElementById(parent);
-    const retry = document.createElement('div');
-    retry.className = 'retry'
+    const parentDiv = document.getElementById('bottom-half');
+    const retryMessage = document.createElement('div');
+    retryMessage.className = 'retry-message'
     const message = document.createElement('p');
     message.textContent = text
-    parentDiv.appendChild(retry);
-    retry.appendChild(message);
+    parentDiv.appendChild(retryMessage);
+    retryMessage.appendChild(message);
 }
 

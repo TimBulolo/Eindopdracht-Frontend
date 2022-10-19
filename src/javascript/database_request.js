@@ -3,8 +3,8 @@ import {databaseKey, databaseId} from "./calculator";
 
 export {searchFood, searchNutrients};
 
-let calSearchTerm = '',
-    calSearchTermUrl = '';
+export let calSearchTerm = ''
+let calSearchTermUrl = '';
 
 const fillBar = document.getElementById('completed');
 const searchBar = document.getElementById('calorie-search-bar');
@@ -90,7 +90,7 @@ function Ingredients(q, m, f) {
 }
 
 async function searchNutrients() {
-    ingredients.splice(0,1, new Ingredients(quantity, measureURI, foodId))
+    ingredients.splice(0, 1, new Ingredients(quantity, measureURI, foodId))
     console.log(ingredients);
     try {
         const response = await axios({

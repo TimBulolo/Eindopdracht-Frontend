@@ -40,7 +40,7 @@
     border-radius: 5px 5px 0 0;
 }
 
-.tile-info, .cal-ing-min, .cal-ing, .time, .retry {
+.tile-info, .cal-ing-min, .cal-ing, .time, .retry-message {
     display: flex;
     flex-direction: row;
 }
@@ -54,13 +54,10 @@
     font-weight: initial;
 }
 
-.time {
-    align-self: flex-end;
-}
-
-.retry {
+.retry-message {
+    width: 100%;
     justify-content: center;
-    font-family: Poppins, sans-serif;
+    font-family: var(--normal-font-family);
     color: red;
     text-decoration: black;
 }

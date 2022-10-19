@@ -2,13 +2,27 @@ export let
     databaseKey = '',
     databaseId = 'edfb0da8';
 
-import {searchFood, searchNutrients, product, weight, energy, fat, carbs, quantity,} from "./database_request";
+import {
+    searchFood,
+    searchNutrients,
+    product,
+    weight,
+    energy,
+    fat,
+    carbs,
+    quantity,
+    calSearchTerm,
+} from "./database_request";
 
 
 document.getElementById('calorie-search-form').addEventListener("submit", async (e) => {
     e.preventDefault();
-    await searchFood();
-    fillTop();
+    if (calSearchTerm.length < 1) {
+        document.getElementById('warning').textContent = 'Please enter a search query'
+    } else {
+        await searchFood();
+        fillTop();
+    }
 });
 
 
@@ -74,8 +88,9 @@ function fillBottom() {
 function showTotal(className, parent, unit) {
     let nutrientCategory = Array.from(document.querySelectorAll(className));
     let data = nutrientCategory.map((calorieDate) =>
-        Number(JSON.stringify(calorieDate.firstChild.data).replace(unit, '').replace(/"/g,''))
+        Number(JSON.stringify(calorieDate.firstChild.data).replace(unit, '').replace(/"/g, ''))
     );
     const total = data.reduce((partialSum, a) => partialSum + a, 0);
     document.getElementById(parent).textContent = `${total} ${unit}`;
 }
+

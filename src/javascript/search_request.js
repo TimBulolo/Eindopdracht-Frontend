@@ -2,6 +2,7 @@ import axios from "axios";
 import {recipeKey, recipeId,} from "../app";
 export {randomize, searchRequest}
 
+// These variables receive data from the searchRequest() function and get exported to create visual search results at /tile_input.js
 export let
     searchTerm = document.getElementById('search-term').value,
     searchedRecipes = '',
@@ -11,6 +12,7 @@ export let
     searchedIngredientAmounts = '',
     searchedCookTimes = '';
 
+// These variables are used to create a GET url
 let
     mealTypeUrl = '',
     cuisineTypeUrl = '',
@@ -21,6 +23,8 @@ let
 document.getElementById('search-term').addEventListener("keyup", (e) => {
     searchTerm = e.target.value;
 });
+
+// The following event listeners set url strings via the search form select inputs. if a select input gets set back to the empty start value the string is reverted to empty
 document.getElementById('meal-type').addEventListener("change", (e) => {
     let mealType = e.target.value;
     if (mealType.length === 0){
@@ -56,6 +60,7 @@ document.getElementById('time').addEventListener("change", (e) => {
 
 });
 
+// The randomizer function creates the main difference between the top and bottom part of the page. its sets a 'random' url string that overrides the other search inputs and shows random results when set to true
 function randomize(random) {
     if (random === true){
         randomUrl = '&random=true'
@@ -65,6 +70,7 @@ function randomize(random) {
     }
 }
 
+//This function fires a GET request to the Edamam Recipe Search API using the created url. then it maps the results to get the data needed
 async function searchRequest() {
     try {
         const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${recipeId}&app_key=${recipeKey}&q=${searchTerm}${mealTypeUrl}${cuisineTypeUrl}${dietChoiceUrl}${timeFrameUrl}${randomUrl}`);
