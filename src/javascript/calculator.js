@@ -1,3 +1,4 @@
+//Please enter the database key provided in the README file between the empty quotations
 export let
     databaseKey = '',
     databaseId = 'edfb0da8';

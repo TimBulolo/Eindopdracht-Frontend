@@ -1,6 +1,5 @@
-
+//Please enter the recipe key provided in the README file between the empty quotations
 export const
-
     recipeKey = '',
     recipeId = '1dba6a76';
 

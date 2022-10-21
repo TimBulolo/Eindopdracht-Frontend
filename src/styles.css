@@ -88,8 +88,8 @@ header nav a {
     font-weight: bold;
     font-size: 10px;
     border: solid 1px var(--background-color);
-    padding: 5px 10px;
     border-radius: 3px;
+    padding: 5px 10px;
 }
 
 

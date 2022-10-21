@@ -45,8 +45,8 @@ async function autoFill() {
 
 export let
     product = '',
-    weight = '',
-    label = '';
+    weight = '';
+
 
 async function searchFood() {
     try {
@@ -74,7 +74,7 @@ amountInput.addEventListener("input", (e) => {
 });
 
 export let
-    quantity = '',
+    quantity = 1,
     energy = '',
     fat = '',
     carbs = '';
@@ -91,7 +91,6 @@ function Ingredients(q, m, f) {
 
 async function searchNutrients() {
     ingredients.splice(0, 1, new Ingredients(quantity, measureURI, foodId))
-    console.log(ingredients);
     try {
         const response = await axios({
             method: 'post',
@@ -100,7 +99,6 @@ async function searchNutrients() {
                 ingredients
             }
         });
-        console.log(response.config.url)
         const {ENERC_KCAL, FAT, CHOCDF} = response.data.totalNutrients;
         const {label: eLabel, quantity: eQuantity, unit: eUnit} = ENERC_KCAL;
         const {label: fLabel, quantity: fQuantity, unit: fUnit} = FAT;
@@ -108,7 +106,6 @@ async function searchNutrients() {
         energy = [eLabel, Number(Math.ceil(eQuantity)), eUnit];
         fat = [fLabel, Number(Math.ceil(fQuantity)), fUnit];
         carbs = [cLabel, Number(Math.ceil(cQuantity)), cUnit];
-        console.log(energy)
     } catch (err) {
         console.error(err)
     }
