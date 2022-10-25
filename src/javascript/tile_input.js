@@ -33,7 +33,7 @@ function createTileElement(className, loop, parent) {
         recipeLink.href = '../html/recipe.html'
         recipeLink.className = className
         const recipeTile = document.createElement('div');
-        recipeTile.className = 'recipe-tile';
+        recipeTile.className = 'recipe-tile'
         recipeTile.id = 'searched-tile-' + i;
         //this event listener tells the recipe page what data to load via sessionStorage
         recipeTile.onclick = () => {
@@ -60,7 +60,7 @@ function createTileElement(className, loop, parent) {
         ingAmount.textContent = searchedIngredientAmounts[i];
         const ing = document.createElement('p');
         ing.className = 'cal-ing-min';
-        ing.textContent = '\u00A0Ingredients';
+        ing.textContent = '\u00A0Ingredients'
         const time = document.createElement('div');
         time.className = 'time';
         const clockSymbol = document.createElement('p');
@@ -92,7 +92,7 @@ function createTileElement(className, loop, parent) {
 
 //This function creates error messages when search queries cannot be executed. it takes a 'text' parameter to display different messages
 function createRetryMessage(text) {
-    //First it removes old results
+    //First it removes older results
     refresh('recipe-link');
     const parentDiv = document.getElementById('bottom-half');
     const retryMessage = document.createElement('div');

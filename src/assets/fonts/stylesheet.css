@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Austein Script';
+    src: url('Austein-Script.woff2') format('woff2'),
+        url('Austein-Script.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Austein';
+    src: url('Austein-Script.woff2') format('woff2'),
+        url('Austein-Script.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
