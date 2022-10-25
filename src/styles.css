@@ -51,13 +51,14 @@ header nav a {
 }
 
 #top-half {
+    display: flex;
+    flex-direction: column;
+    padding: var(--default-padding);
     background-image: url("assets/images/hero-image.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     height: 525px;
-    display: flex;
-    flex-direction: column;
-    padding: var(--default-padding);
+
 }
 
 #random{

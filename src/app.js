@@ -1,4 +1,4 @@
-//Please enter the recipe key provided in the README file between the empty quotations
+//Please enter the recipe key provided in the README file between the empty quotations on line 3
 export const
     recipeKey = '',
     recipeId = '1dba6a76';
@@ -29,7 +29,7 @@ submitSearch.addEventListener("submit", async (e) => {
         await searchRequest();
         // The user gets a message when no results are fetched
         if (searchedRecipes.length < 1) {
-            createRetryMessage( `Your search didn't find any matches, please try something else`)
+            createRetryMessage( `Your search didn't find any matches, please try something else`);
         } else {
             // The loop is set to the amount of search results and the tiles get appended to the correct element
             createTileElement('recipe-link', searchedRecipes.length, 'searched-tiles');
