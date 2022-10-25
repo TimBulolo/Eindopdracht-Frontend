@@ -1,21 +1,22 @@
 import axios from "axios";
-import {recipeKey, recipeId,} from "../app";
+import {recipeKey, recipeId} from "../app";
 import {createRetryMessage} from "./tile_input";
+
 export {randomize, searchRequest}
 
-// These variables receive data from the searchRequest() function and get exported to create visual search results at /tile_input.js
+// These variables receive data from the searchRequest() function and get exported to create visual search results at /tile_input.js. searchTerm is used in src/app.js
 export let
-    searchTerm = document.getElementById('search-term').value,
     searchedRecipes = '',
     searchedPics = '',
     searchedTitles = '',
     searchedCalories = '',
     searchedIngredientAmounts = '',
-    searchedCookTimes = '';
+    searchedCookTimes = '',
+    searchTerm = document.getElementById('search-term').value;
 
 // These variables are used to create a GET url
-let
-    mealTypeUrl = '',
+    let
+mealTypeUrl = '',
     cuisineTypeUrl = '',
     dietChoiceUrl = '',
     timeFrameUrl = '',
@@ -28,46 +29,47 @@ document.getElementById('search-term').addEventListener("keyup", (e) => {
 // The following event listeners set url strings via the search form select inputs. if a select input gets set back to the empty start value the string is reverted to empty
 document.getElementById('meal-type').addEventListener("change", (e) => {
     let mealType = e.target.value;
-    if (mealType.length === 0){
-        mealTypeUrl = ''
+    if (mealType.length === 0) {
+        mealTypeUrl = '';
     } else {
-        mealTypeUrl = `&mealType=${mealType}`
+        mealTypeUrl = `&mealType=${mealType}`;
     }
 });
 document.getElementById('cuisine').addEventListener("change", (e) => {
-    let cuisineType = e.target.value
-    if (cuisineType.length === 0){
-        cuisineTypeUrl = ''
+    let cuisineType = e.target.value;
+    if (cuisineType.length === 0) {
+        cuisineTypeUrl = '';
     } else {
-        cuisineTypeUrl = `&cuisineType=${cuisineType}`
+        cuisineTypeUrl = `&cuisineType=${cuisineType}`;
     }
 });
 document.getElementById('diet').addEventListener("change", (e) => {
-    let dietChoice = e.target.value
-    if (dietChoice.length === 0){
-        dietChoiceUrl = ''
+    let dietChoice = e.target.value;
+    if (dietChoice.length === 0) {
+        dietChoiceUrl = '';
     } else {
-        dietChoiceUrl = `&diet=${dietChoice}`
+        dietChoiceUrl = `&diet=${dietChoice}`;
     }
 
 });
 document.getElementById('time').addEventListener("change", (e) => {
-    let timeFrame = e.target.value
-    if (timeFrame.length === 0){
-        timeFrameUrl = ''
+    let timeFrame = e.target.value;
+    if (timeFrame.length === 0) {
+        timeFrameUrl = '';
     } else {
-        timeFrameUrl = `&time=${timeFrame}`
+        timeFrameUrl = `&time=${timeFrame}`;
     }
 
 });
 
 // The randomizer function creates the difference random and specific search requests. its sets a 'random' url string that overrides the other search inputs and shows random results when set to true
 function randomize(random) {
-    if (random === true){
+    if (random === true) {
         randomUrl = '&random=true'
         // url string '&q='is necessary.
         searchTerm = 'food'
-    } if (random === false) {
+    }
+    if (random === false) {
         randomUrl = '&random=false'
     }
 }
@@ -76,7 +78,7 @@ function randomize(random) {
 async function searchRequest() {
     try {
         const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${recipeId}&app_key=${recipeKey}&q=${searchTerm}${mealTypeUrl}${cuisineTypeUrl}${dietChoiceUrl}${timeFrameUrl}${randomUrl}`);
-        let results = response.data.hits;
+        const results = response.data.hits;
         searchedRecipes = results.map((result) =>
             result.recipe
         );

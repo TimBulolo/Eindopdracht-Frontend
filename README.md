@@ -24,44 +24,45 @@ npm install
 ```
 _Having issues? check if [Node.js](https://nodejs.org/) is correctly installed on your machine._
 ##### step 2
-Open [src/app.js](src/app.js) from the project source folder. At the top of the file, Please enter the first Edamam API key given here in between the empty quotation marks on line 3.
+Open [src/app.js](src/app.js) from the project source folder. At the top of the file, Please enter the first Edamam API key given here in between the empty quotation marks on line 3, then save.
  ```sh
-    b37e569eef510825f6bc61393240de80
+b37e569eef510825f6bc61393240de80
 ```
  _correct:_
  ```sh
-    recipeKey = 'b37e569eef510825f6bc61393240de80',
+recipeKey = 'b37e569eef510825f6bc61393240de80',
 ```
 _incorrect:_
  ```sh
-    recipeKey = b37e569eef510825f6bc61393240de80,
+recipeKey = b37e569eef510825f6bc61393240de80,
 ```
  ```sh
-    recipeKey = ''b37e569eef510825f6bc61393240de80,
+recipeKey = ''b37e569eef510825f6bc61393240de80,
 ```
 ##### Step 3
-Open [src/javascript/calculator_app.js](src/javascript/calculator_app.js) from the project source file. Please enter the second Edamam API key given here in between the empty quotation marks on line 3.
+Open [src/javascript/calculator_app.js](src/javascript/calculator_app.js) from the project source file. Please enter the second Edamam API key given here in between the empty quotation marks on line 3, then save.
  ```sh
-    7b4f0a94414cba97dcd839e7b0fd4578
+7b4f0a94414cba97dcd839e7b0fd4578
 ```
  _correct:_
  ```sh
-    databaseKey = '7b4f0a94414cba97dcd839e7b0fd4578',
+databaseKey = '7b4f0a94414cba97dcd839e7b0fd4578',
 ```
 _incorrect:_
  ```sh
-    databaseKey = 7b4f0a94414cba97dcd839e7b0fd4578,
+databaseKey = 7b4f0a94414cba97dcd839e7b0fd4578,
 ```
  ```sh
-    databaseKey = ''7b4f0a94414cba97dcd839e7b0fd4578,
+databaseKey = ''7b4f0a94414cba97dcd839e7b0fd4578,
 ```
 ##### Step 4
 Open up the terminal and run the following command: 
  ```sh
-    npm run start
+npm run start
 ```
 _Having issues? Return to step 1_
 ##### Step 5
 Click the localhost link provided by the terminal to run the application locally in your browser.
 
 ### You are now ready to start using _The Clueless Cook_  web application
+_If you encounter issues during use, try to make sure the API keys are entered correctly_

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {databaseKey, databaseId} from "./calculator_app";
+import {databaseKey, databaseId, warning} from "./calculator_app";
 
 export {searchFood, searchNutrients};
 
@@ -49,7 +49,7 @@ async function autoFill() {
         completed = response.data[0];
     } catch (err) {
         console.error(err);
-        // Clears fillBar when request fails
+        // Clears fillBar when request fails.
         fillBar.value = '';
     }
 }
@@ -76,6 +76,7 @@ async function searchFood() {
         measureURI = measureFind.uri;
     } catch (err) {
         console.error(err);
+        warning.textContent = 'Something went wrong on our side, please refresh the page and try again';
     }
 }
 
@@ -125,6 +126,7 @@ async function searchNutrients() {
         carbs = [cLabel, Number(Math.ceil(cQuantity)), cUnit];
     } catch (err) {
         console.error(err);
+        warning.textContent = 'Something went wrong on our side, please refresh the page and try again';
     }
 }
 
