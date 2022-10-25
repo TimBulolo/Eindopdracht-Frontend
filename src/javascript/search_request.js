@@ -1,11 +1,7 @@
 import axios from "axios";
-<<<<<<< HEAD
 import {recipeKey, recipeId} from "../app";
 import {createRetryMessage} from "./tile_input";
 
-=======
-import {recipeKey, recipeId,} from "../app";
->>>>>>> parent of 60a2046 (final touch 1)
 export {randomize, searchRequest}
 
 // These variables receive data from the searchRequest() function and get exported to create visual search results at /tile_input.js. searchTerm is used in src/app.js
@@ -66,14 +62,15 @@ document.getElementById('time').addEventListener("change", (e) => {
 
 });
 
-// The randomizer function creates the main difference between the top and bottom part of the page. its sets a 'random' url string that overrides the other search inputs and shows random results when set to true
+// The randomizer function creates the difference random and specific search requests. its sets a 'random' url string that overrides the other search inputs and shows random results when set to true
 function randomize(random) {
     if (random === true) {
-        randomUrl = '&random=true'
-        searchTerm = 'food'
+        randomUrl = '&random=true';
+        // url string '&q='is necessary.
+        searchTerm = 'food';
     }
     if (random === false) {
-        randomUrl = '&random=false'
+        randomUrl = '&random=false';
     }
 }
 
@@ -100,8 +97,8 @@ async function searchRequest() {
         searchedCookTimes = searchedRecipes.map((searchedCookTime) =>
             searchedCookTime.totalTime
         );
-        console.log(response.config.url)
     } catch (err) {
-        console.error(err)
+        console.error(err);
+        createRetryMessage('Something went wrong, please try again');
     }
 }

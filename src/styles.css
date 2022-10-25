@@ -26,7 +26,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #eeeeee;
-    font-family: Austein, serif;
+    font-family: Austein, Serif;
     font-size: 30px;
     font-weight: 100;
     color: var(--background-color);

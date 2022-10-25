@@ -3,9 +3,9 @@ let chosenRecipe = JSON.parse(sessionStorage.getItem('recipe'));
 console.log(chosenRecipe);
 
 (function fillHeader() {
-    document.getElementById('recipe-page-title').textContent = `${chosenRecipe.label}\u00A0\u00A0\u00A0\u00A0`;
+    document.getElementById('recipe-page-title').textContent = `${chosenRecipe.label}\u00A0\u00A0\u00A0\u00A0`
     document.getElementById('recipe-page-time').textContent =
-        `\u00A0${chosenRecipe.totalTime}\u00A0`;
+        `\u00A0${chosenRecipe.totalTime}\u00A0`
     document.getElementById('recipe-page-pic').src =
     chosenRecipe.image;
 })();
