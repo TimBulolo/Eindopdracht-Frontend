@@ -1,15 +1,16 @@
+// Variable for sessionStorage data from clicked tile.
 let chosenRecipe = JSON.parse(sessionStorage.getItem('recipe'));
-
-console.log(chosenRecipe);
+// All functions are IIFE, no user interaction
 
 (function fillHeader() {
     document.getElementById('recipe-page-title').textContent = `${chosenRecipe.label}\u00A0\u00A0\u00A0\u00A0`
     document.getElementById('recipe-page-time').textContent =
         `\u00A0${chosenRecipe.totalTime}\u00A0`
     document.getElementById('recipe-page-pic').src =
-    chosenRecipe.image;
+        chosenRecipe.image;
 })();
 
+// Creates list items
 (function fillIngredientsList() {
     const ingredientsList = document.getElementById('ingredients-list');
     const listItems = chosenRecipe.ingredientLines;
@@ -20,6 +21,7 @@ console.log(chosenRecipe);
     }
 })();
 
+// Creates div elements with health labels
 (function fillHealthLabels() {
     const healthLabels = document.getElementById('heath-labels');
     const labelList = chosenRecipe.healthLabels;

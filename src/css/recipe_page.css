@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: var(--default-padding);
-    margin: 20px 0px;
+    margin: 20px 0;
     font-family: var(--normal-font-family);
     color: var(--background-color);
 }
