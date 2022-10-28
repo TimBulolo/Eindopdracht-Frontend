@@ -15,8 +15,9 @@ export let
     searchTerm = document.getElementById('search-term').value;
 
 // These variables are used to create a GET url
-    let
-mealTypeUrl = '',
+let
+    searchTermUrl = '',
+    mealTypeUrl = '',
     cuisineTypeUrl = '',
     dietChoiceUrl = '',
     timeFrameUrl = '',
@@ -24,6 +25,7 @@ mealTypeUrl = '',
 
 document.getElementById('search-term').addEventListener("keyup", (e) => {
     searchTerm = e.target.value;
+    searchTermUrl = `&q=${searchTerm}`
 });
 
 // The following event listeners set url strings via the search form select inputs. if a select input gets set back to the empty start value the string is reverted to empty
@@ -67,7 +69,7 @@ function randomize(random) {
     if (random === true) {
         randomUrl = '&random=true';
         // url string '&q='is necessary.
-        searchTerm = 'food';
+        searchTermUrl = '&q=food'
     }
     if (random === false) {
         randomUrl = '&random=false';
@@ -77,7 +79,8 @@ function randomize(random) {
 //This function fires a GET request to the Edamam Recipe Search API using the created url. then it maps the results to get the data needed
 async function searchRequest() {
     try {
-        const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${recipeId}&app_key=${recipeKey}&q=${searchTerm}${mealTypeUrl}${cuisineTypeUrl}${dietChoiceUrl}${timeFrameUrl}${randomUrl}`);
+        const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${recipeId}&app_key=${recipeKey}${searchTermUrl}${mealTypeUrl}${cuisineTypeUrl}${dietChoiceUrl}${timeFrameUrl}${randomUrl}`);
+        console.log(response.config.url)
         const results = response.data.hits;
         searchedRecipes = results.map((result) =>
             result.recipe
